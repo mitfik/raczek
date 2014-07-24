@@ -15,6 +15,12 @@ class SystemParams
     @cpu_cores = fetch_cpu_cores
   end
 
+
+  def to_hash
+    {:hostname => @hostname, :ip_addr => @ip_addr, :cpu_cores => @cpu_cores,
+     :memory_size => @memory_size, :disk_size => @disk_size }
+  end
+
   private
 
     def fetch_hostname
@@ -43,5 +49,4 @@ class SystemParams
     def number_to_human_size(number)
       ActiveSupport::NumberHelper.number_to_human_size number
     end
-
 end
